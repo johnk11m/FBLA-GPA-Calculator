@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body> 
+   
+<!--Introductory Modal -->
+<div id="introModal" class="modal">
+    <div class="modal-content">
+        <h4>Welcome to the GPA Calculator!</h5>
+        <p>This tool allows you to calculate your unweighted and weighted GPAs.</p>
+        <ul>
+            <li>1. Choose whether you want to calculate your unweighted or weighted GPA.</li>
+            <li>2. Click the <strong>"+"</strong> to add the courses/classes you are taking in a semester.</li>
+            <li>3. Type your course name in the <strong>"Course Name"</strong> section, select the amount of credits the course has in the <strong>"Credits"</strong> section, and select the letter grade that you got in that course in the <strong>"Grade"</strong> section.</li>
+            <li>4. After adding all your courses and its corresponding information, click <strong>"Calculate"</strong> to see your GPA.</li>
+            <li>5. Use the <strong>"Reset"</strong> button to clear all entered data.</li>
+            <li>6. Click <strong>"Grading"</strong> to look at the grading standard.</li>
+             <div class="modal-footer">
+                <a href="#!" id= "introContinueBtn" class="modal-close waves-effect waves-light blue btn-flat white-text">Continue</a>
+            </div>
+        </ul>
+    </div>
+</div>
+
+    <nav style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" class="nav-extended">
+        <div class="nav-wrapper indigo darken-4">
+            <h7><a href="#" class="brand-logo left"><img src="GPA calculator.jpg" alt="" srcset=""></a></h7>
+            <a href="#title" class="brand-logo center">GPA Calculator</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="" class="resetNav">Reset</a></li>
+                <li><a href="#gradingModal" class="modal-trigger">Grading</a></li>
+                <li><a href="#" class="intModal">Info</a></li>
+                <li><a href="" class="saveData">Save</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light orange darken-2 add-Course">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6"><a href="#unweightedTab">Unweighted GPA</a></li>
+                <li class="tab col s6"><a href="#weightedTab">Weighted GPA</a></li>
+            </ul>
+        </div>
+  </div>
+
+    <div class="head" id="courseContainer">
+        <div id="unweightedTab" class="col s12">
+            <h3>
+                <div class="col s1">
+                    <div class="card-panel white">Your GPA is: <span id="totalGPA" class="gpa-result hidden">-</span></div>
+                </div>
+            </h3>
+            <div>
+                <h6>
+                    <button class="btn1 waves-effect waves-light amber" id="calculateUnweighted" type="submit"
+                        name="action">Calculate
+                        <i class="material-icons right">send</i>
+                    </button>
+                </h6>
+            </div>
+            </div>
+    
+
+        <!--Weighted GPA-->
+        <div id="weightedTab" class="col s12">
+            <h3>
+                <div class="col s1">
+                    <div class="card-panel white">Your Weighted GPA is: <span id="totalWeightedGPA" class="gpa-result hidden>">-</span></div>
+                </div>
+            </h3>
+            <div>
+                <h6>
+                    <button class="btn1 waves-effect waves-light amber" id="calculateWeighted" type="submit"
+                        name="action">Calculate
+                        <i class="material-icons right">send</i>
+                    </button>
+                </h6>
+            </div>
+            </div>
+    
+
+    <!--Grading System-->
+    <div id="gradingModal" class="modal">
+        <div class="modal-content">
+            <h4>GPA Standards</h4>
+            <p>Unweighted GPA Scale:</p>
+            <p>A: 4.0, A-: 3.67, B+: 3.33, B: 3.0, B-: 2.67, C+: 2.33, C: 2.0, C-: 1.67, D+: 1.33, D: 1.0, D-: 0.67, F: 0.0</p>
+            <p>Weighted GPA Scale:</p>
+            <p>A: 5.0, A-: 4.7, B+: 4.33, B: 4.0, B: 3.7 C+: 3.33, C: 3.0, C-: 2.7 D+: 2.33, D: 2.0, F: 0.0</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="index.js">
+        document.addEventListener('DOMContentLoaded', function () {
+    M.AutoInit();
+
+    setupEventListeners();
+  
+    var introModal = M.Modal.init(document.getElementById('introModal'));
+    introModal.open();
+
+    document.querySelector(".intModal").addEventListener("click", function(){
+        introModal.open();
+    });
+    document.getElementById("introContinueBtn").addEventListener("click",function(){
+        introModal.close();
+    });
+});   
+    </script>
+
+</body>
+
+</html>
